@@ -44,6 +44,42 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: black_holes; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.black_holes (
+    galaxy_id integer NOT NULL,
+    black_hole_num integer,
+    name character varying(250),
+    description text
+);
+
+
+ALTER TABLE public.black_holes OWNER TO freecodecamp;
+
+--
+-- Name: black_holes_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.black_holes_galaxy_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.black_holes_galaxy_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: black_holes_galaxy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.black_holes_galaxy_id_seq OWNED BY public.black_holes.galaxy_id;
+
+
+--
 -- Name: galaxy; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
@@ -200,6 +236,49 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 
 
 --
+-- Name: warm_holes; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.warm_holes (
+    galaxy_id integer NOT NULL,
+    worm_hole_num integer,
+    name character varying(250),
+    description text
+);
+
+
+ALTER TABLE public.warm_holes OWNER TO freecodecamp;
+
+--
+-- Name: warm_holes_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.warm_holes_galaxy_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.warm_holes_galaxy_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: warm_holes_galaxy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.warm_holes_galaxy_id_seq OWNED BY public.warm_holes.galaxy_id;
+
+
+--
+-- Name: black_holes galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.black_holes ALTER COLUMN galaxy_id SET DEFAULT nextval('public.black_holes_galaxy_id_seq'::regclass);
+
+
+--
 -- Name: galaxy galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
@@ -228,9 +307,28 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 
 
 --
+-- Name: warm_holes galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.warm_holes ALTER COLUMN galaxy_id SET DEFAULT nextval('public.warm_holes_galaxy_id_seq'::regclass);
+
+
+--
+-- Data for Name: black_holes; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+
+
+--
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy VALUES (1, 'andramedo', 'galaxy closest to eartth', true, false, 13000, 20);
+INSERT INTO public.galaxy VALUES (2, 'tundramedo', 'galaxy far to eartth', true, true, 15000, 30);
+INSERT INTO public.galaxy VALUES (3, 'hundramedo', 'galaxy not visible', true, true, 15000, 30);
+INSERT INTO public.galaxy VALUES (4, 'ramedo', 'galaxy not visible', true, true, 15000, 30);
+INSERT INTO public.galaxy VALUES (5, 'medo', 'galaxy not visible', true, true, 15000, 30);
+INSERT INTO public.galaxy VALUES (6, 'medolion', 'galaxy not visible', true, true, 15000, 30);
 
 
 --
@@ -243,12 +341,43 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet VALUES (1, 'venera', ' tiny', false, true, 2, 20);
+INSERT INTO public.planet VALUES (2, 'uranium', ' tiny', false, true, 2, 20);
+INSERT INTO public.planet VALUES (3, 'earth', ' shiny', false, true, 2, 20);
+INSERT INTO public.planet VALUES (4, 'mars', ' shiny', false, true, 2, 20);
+INSERT INTO public.planet VALUES (5, 'yupiter', ' shiny', false, true, 2, 20);
+INSERT INTO public.planet VALUES (6, 'pluto', ' shiny', false, true, 2, 20);
+INSERT INTO public.planet VALUES (7, 'neptun', ' shiny', false, true, 2, 20);
+INSERT INTO public.planet VALUES (8, 'mercury', 'gas giant ', false, true, 2, 20);
+INSERT INTO public.planet VALUES (9, 'saturn', 'gas giant ', false, true, 2, 20);
+INSERT INTO public.planet VALUES (10, 'moon', 'satelite of earth ', false, true, 2, 20);
+INSERT INTO public.planet VALUES (11, 'sun', 'satelite of earth ', false, true, 2, 20);
+INSERT INTO public.planet VALUES (12, 'comet', 'satelite of earth ', false, true, 2, 20);
 
 
 --
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.star VALUES (1, 'bt2', 'really big', true, true, 30, 20);
+INSERT INTO public.star VALUES (2, 'bt3', 'really big', true, true, 30, 20);
+INSERT INTO public.star VALUES (3, 'bt4', 'really big', true, true, 30, 20);
+INSERT INTO public.star VALUES (4, 'bt45', 'really small', true, true, 30, 20);
+INSERT INTO public.star VALUES (5, 'ct45', 'really small', true, true, 30, 20);
+INSERT INTO public.star VALUES (6, 'ct457', 'really small', true, true, 30, 20);
+
+
+--
+-- Data for Name: warm_holes; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+
+
+--
+-- Name: black_holes_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.black_holes_galaxy_id_seq', 1, false);
 
 
 --
@@ -276,7 +405,22 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, false);
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
+SELECT pg_catalog.setval('public.star_star_id_seq', 1, true);
+
+
+--
+-- Name: warm_holes_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.warm_holes_galaxy_id_seq', 1, false);
+
+
+--
+-- Name: black_holes black_holes_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.black_holes
+    ADD CONSTRAINT black_holes_name_key UNIQUE (name);
 
 
 --
@@ -341,6 +485,14 @@ ALTER TABLE ONLY public.star
 
 ALTER TABLE ONLY public.star
     ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+
+--
+-- Name: warm_holes warm_holes_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.warm_holes
+    ADD CONSTRAINT warm_holes_name_key UNIQUE (name);
 
 
 --
