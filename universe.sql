@@ -317,6 +317,9 @@ ALTER TABLE ONLY public.warm_holes ALTER COLUMN galaxy_id SET DEFAULT nextval('p
 -- Data for Name: black_holes; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.black_holes VALUES (1, 1, 'qara', 'really big');
+INSERT INTO public.black_holes VALUES (2, 2, 'qara1', 'really big');
+INSERT INTO public.black_holes VALUES (2, 3, 'qara2', 'really big');
 
 
 --
@@ -335,6 +338,27 @@ INSERT INTO public.galaxy VALUES (6, 'medolion', 'galaxy not visible', true, tru
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.moon VALUES (1, 'MN1', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (2, 'MN2', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (3, 'MN4', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (4, 'MN3', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (5, 'MN5', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (6, 'MN6', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (7, 'MN7', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (8, 'MN8', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (9, 'MN9', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (10, 'MN10', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (11, 'MN11', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (12, 'MN12', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (13, 'MN13', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (14, 'MN14', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (15, 'MN15', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (16, 'MN16', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (17, 'MN17', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (18, 'MN18', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (19, 'MN19', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (20, 'MN20', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (21, 'MN21', 'close to earth', false, false, 20, NULL);
 
 
 --
@@ -371,6 +395,9 @@ INSERT INTO public.star VALUES (6, 'ct457', 'really small', true, true, 30, 20);
 -- Data for Name: warm_holes; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.warm_holes VALUES (1, 1, 'WH1', 'something');
+INSERT INTO public.warm_holes VALUES (3, 2, 'WH2', 'something');
+INSERT INTO public.warm_holes VALUES (4, 5, 'sogulcan', NULL);
 
 
 --
