@@ -51,11 +51,34 @@ CREATE TABLE public.black_holes (
     galaxy_id integer NOT NULL,
     black_hole_num integer,
     name character varying(250),
-    description text
+    description text,
+    black_holes_id integer NOT NULL
 );
 
 
 ALTER TABLE public.black_holes OWNER TO freecodecamp;
+
+--
+-- Name: black_holes_black_hole_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.black_holes_black_hole_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.black_holes_black_hole_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: black_holes_black_hole_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.black_holes_black_hole_id_seq OWNED BY public.black_holes.black_holes_id;
+
 
 --
 -- Name: black_holes_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
@@ -241,7 +264,7 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 
 CREATE TABLE public.warm_holes (
     galaxy_id integer NOT NULL,
-    worm_hole_num integer,
+    warm_holes_id integer NOT NULL,
     name character varying(250),
     description text
 );
@@ -276,6 +299,13 @@ ALTER SEQUENCE public.warm_holes_galaxy_id_seq OWNED BY public.warm_holes.galaxy
 --
 
 ALTER TABLE ONLY public.black_holes ALTER COLUMN galaxy_id SET DEFAULT nextval('public.black_holes_galaxy_id_seq'::regclass);
+
+
+--
+-- Name: black_holes black_holes_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.black_holes ALTER COLUMN black_holes_id SET DEFAULT nextval('public.black_holes_black_hole_id_seq'::regclass);
 
 
 --
@@ -317,9 +347,9 @@ ALTER TABLE ONLY public.warm_holes ALTER COLUMN galaxy_id SET DEFAULT nextval('p
 -- Data for Name: black_holes; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.black_holes VALUES (1, 1, 'qara', 'really big');
-INSERT INTO public.black_holes VALUES (2, 2, 'qara1', 'really big');
-INSERT INTO public.black_holes VALUES (2, 3, 'qara2', 'really big');
+INSERT INTO public.black_holes VALUES (1, 1, 'qara', 'really big', 1);
+INSERT INTO public.black_holes VALUES (2, 2, 'qara1', 'really big', 2);
+INSERT INTO public.black_holes VALUES (2, 3, 'qara2', 'really big', 3);
 
 
 --
@@ -401,6 +431,13 @@ INSERT INTO public.warm_holes VALUES (4, 5, 'sogulcan', NULL);
 
 
 --
+-- Name: black_holes_black_hole_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.black_holes_black_hole_id_seq', 3, true);
+
+
+--
 -- Name: black_holes_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
@@ -448,6 +485,14 @@ SELECT pg_catalog.setval('public.warm_holes_galaxy_id_seq', 1, false);
 
 ALTER TABLE ONLY public.black_holes
     ADD CONSTRAINT black_holes_name_key UNIQUE (name);
+
+
+--
+-- Name: black_holes black_holes_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.black_holes
+    ADD CONSTRAINT black_holes_pkey PRIMARY KEY (black_holes_id);
 
 
 --
@@ -520,6 +565,14 @@ ALTER TABLE ONLY public.star
 
 ALTER TABLE ONLY public.warm_holes
     ADD CONSTRAINT warm_holes_name_key UNIQUE (name);
+
+
+--
+-- Name: warm_holes warm_holes_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.warm_holes
+    ADD CONSTRAINT warm_holes_pkey PRIMARY KEY (warm_holes_id);
 
 
 --
