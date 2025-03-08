@@ -152,7 +152,8 @@ CREATE TABLE public.moon (
     has_life boolean NOT NULL,
     is_spherical boolean NOT NULL,
     age_in_millions_of_years integer NOT NULL,
-    distance_from_earth numeric
+    distance_from_earth numeric,
+    planet_id integer
 );
 
 
@@ -191,7 +192,8 @@ CREATE TABLE public.planet (
     has_life boolean NOT NULL,
     is_spherical boolean NOT NULL,
     age_in_millions_of_years integer NOT NULL,
-    distance_from_earth numeric
+    distance_from_earth numeric,
+    star_id integer
 );
 
 
@@ -230,7 +232,8 @@ CREATE TABLE public.star (
     has_life boolean NOT NULL,
     is_spherical boolean NOT NULL,
     age_in_millions_of_years integer NOT NULL,
-    distance_from_earth numeric
+    distance_from_earth numeric,
+    galaxy_id integer
 );
 
 
@@ -368,57 +371,57 @@ INSERT INTO public.galaxy VALUES (6, 'medolion', 'galaxy not visible', true, tru
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.moon VALUES (1, 'MN1', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (2, 'MN2', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (3, 'MN4', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (4, 'MN3', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (5, 'MN5', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (6, 'MN6', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (7, 'MN7', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (8, 'MN8', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (9, 'MN9', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (10, 'MN10', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (11, 'MN11', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (12, 'MN12', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (13, 'MN13', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (14, 'MN14', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (15, 'MN15', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (16, 'MN16', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (17, 'MN17', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (18, 'MN18', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (19, 'MN19', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (20, 'MN20', 'close to earth', false, false, 20, NULL);
-INSERT INTO public.moon VALUES (21, 'MN21', 'close to earth', false, false, 20, NULL);
+INSERT INTO public.moon VALUES (1, 'MN1', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (2, 'MN2', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (3, 'MN4', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (4, 'MN3', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (5, 'MN5', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (6, 'MN6', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (7, 'MN7', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (8, 'MN8', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (9, 'MN9', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (10, 'MN10', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (11, 'MN11', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (12, 'MN12', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (13, 'MN13', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (14, 'MN14', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (15, 'MN15', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (16, 'MN16', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (17, 'MN17', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (18, 'MN18', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (19, 'MN19', 'close to earth', false, false, 20, NULL, 1);
+INSERT INTO public.moon VALUES (20, 'MN20', 'close to earth', false, false, 20, NULL, 5);
+INSERT INTO public.moon VALUES (21, 'MN21', 'close to earth', false, false, 20, NULL, 5);
 
 
 --
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.planet VALUES (1, 'venera', ' tiny', false, true, 2, 20);
-INSERT INTO public.planet VALUES (2, 'uranium', ' tiny', false, true, 2, 20);
-INSERT INTO public.planet VALUES (3, 'earth', ' shiny', false, true, 2, 20);
-INSERT INTO public.planet VALUES (4, 'mars', ' shiny', false, true, 2, 20);
-INSERT INTO public.planet VALUES (5, 'yupiter', ' shiny', false, true, 2, 20);
-INSERT INTO public.planet VALUES (6, 'pluto', ' shiny', false, true, 2, 20);
-INSERT INTO public.planet VALUES (7, 'neptun', ' shiny', false, true, 2, 20);
-INSERT INTO public.planet VALUES (8, 'mercury', 'gas giant ', false, true, 2, 20);
-INSERT INTO public.planet VALUES (9, 'saturn', 'gas giant ', false, true, 2, 20);
-INSERT INTO public.planet VALUES (10, 'moon', 'satelite of earth ', false, true, 2, 20);
-INSERT INTO public.planet VALUES (11, 'sun', 'satelite of earth ', false, true, 2, 20);
-INSERT INTO public.planet VALUES (12, 'comet', 'satelite of earth ', false, true, 2, 20);
+INSERT INTO public.planet VALUES (1, 'venera', ' tiny', false, true, 2, 20, 1);
+INSERT INTO public.planet VALUES (2, 'uranium', ' tiny', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (3, 'earth', ' shiny', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (4, 'mars', ' shiny', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (5, 'yupiter', ' shiny', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (6, 'pluto', ' shiny', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (7, 'neptun', ' shiny', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (8, 'mercury', 'gas giant ', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (9, 'saturn', 'gas giant ', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (10, 'moon', 'satelite of earth ', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (11, 'sun', 'satelite of earth ', false, true, 2, 20, 2);
+INSERT INTO public.planet VALUES (12, 'comet', 'satelite of earth ', false, true, 2, 20, 3);
 
 
 --
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.star VALUES (1, 'bt2', 'really big', true, true, 30, 20);
-INSERT INTO public.star VALUES (2, 'bt3', 'really big', true, true, 30, 20);
-INSERT INTO public.star VALUES (3, 'bt4', 'really big', true, true, 30, 20);
-INSERT INTO public.star VALUES (4, 'bt45', 'really small', true, true, 30, 20);
-INSERT INTO public.star VALUES (5, 'ct45', 'really small', true, true, 30, 20);
-INSERT INTO public.star VALUES (6, 'ct457', 'really small', true, true, 30, 20);
+INSERT INTO public.star VALUES (1, 'bt2', 'really big', true, true, 30, 20, 1);
+INSERT INTO public.star VALUES (2, 'bt3', 'really big', true, true, 30, 20, 2);
+INSERT INTO public.star VALUES (3, 'bt4', 'really big', true, true, 30, 20, 2);
+INSERT INTO public.star VALUES (4, 'bt45', 'really small', true, true, 30, 20, 4);
+INSERT INTO public.star VALUES (5, 'ct45', 'really small', true, true, 30, 20, 4);
+INSERT INTO public.star VALUES (6, 'ct457', 'really small', true, true, 30, 20, 4);
 
 
 --
@@ -573,6 +576,30 @@ ALTER TABLE ONLY public.warm_holes
 
 ALTER TABLE ONLY public.warm_holes
     ADD CONSTRAINT warm_holes_pkey PRIMARY KEY (warm_holes_id);
+
+
+--
+-- Name: moon fk_moon_planet_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT fk_moon_planet_id FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: planet fk_planet_star_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT fk_planet_star_id FOREIGN KEY (star_id) REFERENCES public.star(star_id);
+
+
+--
+-- Name: star fk_star_galaxy; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT fk_star_galaxy FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
 
 
 --
